@@ -1,0 +1,22 @@
+opam-version: "2.0"
+authors: "Vincent Bernardoff <vb@luminar.eu.org>"
+maintainer: "Vincent Bernardoff <vb@luminar.eu.org>"
+homepage: "https://github.com/vbmithr/ocaml-xxh"
+bug-reports: "https://github.com/vbmithr/ocaml-xxh/issues"
+dev-repo: "git+https://github.com/vbmithr/ocaml-xxh"
+doc: "https://vbmithr.github.io/ocaml-xxh/doc"
+build: [ "dune" "build" "-j" jobs "-p" name ]
+run-test: [ "dune" "runtest" "-j" jobs "-p" name ]
+depends: [
+  "dune" {>= "2.0"}
+  "base_bigstring" {>= "v0.14.0"}
+  "stdint" {>= "0.7.0"}
+  "alcotest" {with-test & >= "1.2.3"}
+]
+depexts: [
+  ["libxxhash-dev"] {os-family = "debian" | os-family = "ubuntu" | os-family = "alpine"}
+  ["xxhash"] {os-distribution = "nixos" | os-family = "arch" | os = "freebsd" | os = "macos" & os-distribution = "homebrew"}
+]
+synopsis: "Extremely fast hash algorithm"
+description: """
+"""
